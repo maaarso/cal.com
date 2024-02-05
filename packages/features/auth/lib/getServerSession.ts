@@ -80,6 +80,8 @@ export async function getServerSession(options: {
   };
 
   CACHE.set(JSON.stringify(token), session);
+  console.log("session___________________________", session);
+  //ma session
 
   return session;
 }

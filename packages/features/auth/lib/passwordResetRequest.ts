@@ -19,6 +19,11 @@ const createPasswordReset = async (email: string): Promise<string> => {
     },
   });
 
+  console.log(
+    "createdResetPasswordRequest_____________________________________________________",
+    createdResetPasswordRequest
+  );
+
   return `${process.env.NEXT_PUBLIC_WEBAPP_URL}/auth/forgot-password/${createdResetPasswordRequest.id}`;
 };
 

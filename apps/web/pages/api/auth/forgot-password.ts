@@ -38,6 +38,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       select: { name: true, email: true, locale: true },
     });
     // Don't leak info about whether the user exists
+    console.log("user___________________________", user);
     if (!user) return res.status(201).json({ message: "password_reset_email_sent" });
     await passwordResetRequest(user);
     return res.status(201).json({ message: "password_reset_email_sent" });

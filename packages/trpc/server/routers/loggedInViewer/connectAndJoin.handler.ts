@@ -140,8 +140,10 @@ export const Handler = async ({ ctx, input }: Options) => {
   });
 
   const locationVideoCallUrl = bookingMetadataSchema.parse(updatedBooking.metadata || {})?.videoCallUrl;
+  console.log("meetingUrl___________________________", locationVideoCallUrl);
 
   if (!locationVideoCallUrl) {
+    console.log("URL NON TROUVEE___________________________");
     throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "meeting_url_not_found" });
   }
 
@@ -152,6 +154,9 @@ export const Handler = async ({ ctx, input }: Options) => {
     password: videoCallReference?.meetingPassword,
     url: videoCallReference?.meetingUrl,
   };
+
+  console.log("videoCallData___________________________", videoCallData);
+  console.log("videoCallReference___________________________", videoCallReference);
 
   const { eventType } = updatedBooking;
 

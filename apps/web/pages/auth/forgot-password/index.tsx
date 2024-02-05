@@ -29,6 +29,7 @@ export default function ForgotPassword({ csrfToken }: { csrfToken: string }) {
 
   const submitForgotPasswordRequest = async ({ email }: { email: string }) => {
     try {
+      console.log("email___________________________", email);
       const res = await fetch("/api/auth/forgot-password", {
         method: "POST",
         body: JSON.stringify({ email }),
@@ -40,6 +41,7 @@ export default function ForgotPassword({ csrfToken }: { csrfToken: string }) {
       const json = await res.json();
       if (!res.ok) {
         setError(json);
+        console.log("error___________________________", json);
       } else {
         setSuccess(true);
       }

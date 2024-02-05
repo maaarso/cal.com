@@ -47,5 +47,8 @@ export const getTemporaryOrgRedirect = async ({
       },
     } as const;
   }
+
+  console.log("redirect___________________________", redirect);
+  console.log("slug___________________________", slug);
   return null;
 };
